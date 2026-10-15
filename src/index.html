@@ -1,0 +1,23 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data:; worker-src 'self'; connect-src 'none'"><title>Falling Blocks</title><link rel="stylesheet" href="style.css"></head>
+<body data-skin="8bit">
+<header><div class="brand"><span class="mark">▦</span> Falling Blocks <b>IDLER</b></div><div class="window-actions"><button id="menu" title="Window menu">•••</button><button id="hide" title="Hide to tray">−</button></div></header>
+<main>
+  <div class="status"><span><i id="liveDot"></i> <span id="state">AUTOPILOT</span></span><span class="top-score">SCORE <strong id="topScore" aria-live="polite">0</strong></span><span id="rank">LEVEL 1</span></div>
+  <div class="playfield"><aside><label id="holdLabel">HOLD</label><canvas id="hold" width="64" height="52"></canvas><label>RUN SCORE</label><strong id="score">0</strong><label id="linesLabel">LINES</label><strong id="lines">0</strong><label id="levelLabel">GAME LV</label><strong id="gameLevel">1</strong><div class="mode-tag" id="modeTag">MODERN</div></aside>
+    <div class="board-wrap"><canvas id="board" width="200" height="400" aria-label="Self-playing Falling Blocks board"></canvas><div id="overlay" hidden><strong id="overlayTitle">PAUSED</strong><span id="overlayText"></span></div></div>
+    <aside class="next"><label>NEXT</label><canvas id="next" width="44" height="260"></canvas></aside>
+  </div>
+  <div id="event" class="event">Watching a little mind grow.</div>
+  <section class="progress"><div><label>LIFETIME</label><strong id="lifetime">0</strong></div><div class="wallet"><label>TRAINING PTS</label><strong id="wallet">0</strong></div></section>
+  <div class="meter"><div id="meterFill"></div></div><div class="milestone" id="milestone">Next skin at 10,000</div>
+  <div class="controls"><button id="pause">Ⅱ Pause</button><select id="speed" aria-label="Playback speed"><option value="0.5">0.5×</option><option value="1" selected>1×</option><option value="2">2×</option><option value="4">4×</option></select><button id="details">Training & skins ↗</button></div>
+</main>
+<dialog id="panel"><div class="panel-head"><div><label>YOUR DESKTOP COMPANION</label><h1>A little smarter, every day.</h1></div><button id="closePanel" aria-label="Close">×</button></div>
+  <div class="tabs"><button class="selected" data-tab="training">Training</button><button data-tab="skins">Skins</button><button data-tab="settings">Settings</button></div>
+  <section id="trainingTab"><div class="balance"><label>AVAILABLE POINTS</label><strong id="panelWallet">0</strong></div><div id="skills"></div><button id="practice" class="primary">Run local practice</button><button id="cancelPractice" hidden>Stop practice</button><p id="trainingStatus">Practice tests new stacking weights against unseen piece sequences. No points are earned during practice.</p><progress id="trainingProgress" value="0" max="100" hidden></progress></section>
+  <section id="skinsTab" hidden><p>Earn skins with lifetime score. Spending points keeps every unlock.</p><div id="skins" class="skin-grid"></div></section>
+  <section id="settingsTab" hidden><label for="mode">GAMEPLAY</label><select id="mode"><option value="doctor">Dr. Mario</option><option value="puyo">Puyo Puyo</option><option value="fighter">Puzzle Fighter</option><option value="suika">Suika Game</option><option value="classic">NES Classic</option><option value="modern" disabled>Modern · 50,000</option><option value="blind" disabled>Blind Grandmaster · 500,000</option></select><p id="modeDescription"></p><div id="classicOptions" hidden><label for="classicLevel">CLASSIC START LEVEL</label><select id="classicLevel"></select></div><p>Changing mode or start level starts a new run. Lifetime points and training remain saved.</p><label class="startup-option"><input id="startWithWindows" type="checkbox" disabled> Start automatically with Windows</label><p id="startupStatus" role="status">Launch the game when you sign in.</p><div id="stats"></div><p>Resize with Ctrl + scroll. Use the window menu for size presets and always-on-top. Play continues while hidden; sleep and quitting pause progress.</p><button id="quit">Save & quit</button></section>
+</dialog>
+<script src="engine.js"></script><script src="progression.js"></script><script src="block-art.js"></script><script src="board-dog.js"></script><script src="suika.js"></script><script src="pair-games.js"></script><script src="app.js"></script>
+</body></html>

@@ -1,0 +1,10 @@
+node_modules/
+release/
+artifacts/
+*.log
+
+# Local shortcuts and credentials
+*.lnk
+.env
+.env.*
+!.env.example
